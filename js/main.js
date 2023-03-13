@@ -1,3 +1,4 @@
+// array di oggetti
 const icons = [
 	{
 		name: 'cat',
@@ -119,52 +120,51 @@ const typeFilterDom = document.getElementById("type-filter");
 let chosenType = typeFilterDom.value;
 console.log(chosenType);
 
-icons.forEach((element) => {
-    const boxIcon = `<div class="box">
-                        <i class="fa-solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
-                        <h4>${element.name}</h4>
-                     </div>`;
-    // console.log(boxIcon);
 
-    contentDom.innerHTML += boxIcon;
-})
+generateElements(icons);
+
 
 typeFilterDom.addEventListener("change", function(){
+    contentDom.innerHTML = "";
+    
     chosenType = typeFilterDom.value;
     console.log(chosenType);
 
+    if (chosenType == "all") {       
+
+        generateElements(icons);
+
+    } 
+
     if (chosenType == "animal") {
-        const animals = icons.filter((icon) => {
-            if (icon.type == "animal") {
-                return true;
-            } else {
-                return false;
-            }
-        })
-        console.log(animals);
+        const icons2 = icons.filter(icon => icon.type == "animal" ? true : false);
+        console.log(icons2);
+        generateElements(icons2);
     } 
 
     if (chosenType == "vegetable") {
-        const vegetables = icons.filter((icon) => {
-            if (icon.type == "vegetable") {
-                return true;
-            } else {
-                return false;
-            }
-        })
-        console.log(vegetables);
+        const icons2 = icons.filter(icon => icon.type == "vegetable" ? true : false);
+        console.log(icons2);
+        generateElements(icons2);
     } 
 
     if (chosenType == "user") {
-        const users = icons.filter((icon) => {
-            if (icon.type == "user") {
-                return true;
-            } else {
-                return false;
-            }
-        })
-        console.log(users);
+        const icons2 = icons.filter(icon => icon.type == "user" ? true : false);
+        console.log(icons2);
+        generateElements(icons2);
     } 
 
-
 })
+
+
+// function per generare i tag nel DOM
+function generateElements (arrayName) {
+    arrayName.forEach((element) => {
+        const boxIcon = `<div class="box">
+                            <i class="fa-solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+                            <h4>${element.name}</h4>
+                         </div>`;
+    
+        contentDom.innerHTML += boxIcon;
+    })
+}

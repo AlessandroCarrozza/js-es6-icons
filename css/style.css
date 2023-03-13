@@ -63,7 +63,7 @@ nav select{
 
 /* inizio main */
 main{
-    height: calc(100vh - 180px);
+    min-height: calc(100vh - 180px);
     background-color: lightgrey;
 }
 
