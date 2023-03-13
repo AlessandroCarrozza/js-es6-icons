@@ -117,9 +117,9 @@ const icons = [
 const contentDom = document.getElementById("content");
 
 icons.forEach((element) => {
-    const boxIcon = `<div>
-                        <h2>${element.name}</h2>
+    const boxIcon = `<div class="box">
                         <i class="fa-solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+                        <h4>${element.name}</h4>
                      </div>`;
     console.log(boxIcon);
 

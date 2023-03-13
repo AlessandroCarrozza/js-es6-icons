@@ -13,7 +13,6 @@
 
 .container{
     max-width: 1170px;
-    height: 100%;
     margin: auto;
 }
 
@@ -29,6 +28,7 @@ header{
 header .container{
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .logo-title{
@@ -62,6 +62,35 @@ nav select{
 
 
 /* inizio main */
+main{
+    height: calc(100vh - 180px);
+    background-color: lightgrey;
+}
+
 main .container{
-    /* debug */ background-color: lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .box{
+    background-color: white;
+    height: 90px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.box i{
+    font-size: 2rem;
+    padding: 5px;
+}
+
+.box h4{
+    text-transform: uppercase;
 }
