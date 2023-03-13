@@ -117,14 +117,13 @@ const icons = [
 // collegamenti al DOM
 const contentDom = document.getElementById("content");
 const typeFilterDom = document.getElementById("type-filter");
-let chosenType = typeFilterDom.value;
-console.log(chosenType);
+
 
 
 generateElements(icons);
 
-
 typeFilterDom.addEventListener("change", function(){
+    let chosenType = typeFilterDom.value;
     contentDom.innerHTML = "";
     
     chosenType = typeFilterDom.value;
@@ -151,14 +150,33 @@ typeFilterDom.addEventListener("change", function(){
 })
 
 
+
 // function per generare i tag nel DOM
 function generateElements (arrayName) {
+
+    const hexColorValues = ["a", "b", "c", "d", "e", "f", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let hexColor = "";
+
     arrayName.forEach((element) => {
+
+        for (let i = 0; i < 6; i++) {  
+            hexColor += hexColorValues[generateRandomNumber(0, 15)];
+        }
+        console.log(hexColor);
+
         const boxIcon = `<div class="box">
-                            <i class="fa-solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+                            <i class="fa-solid ${element.prefix}${element.name}" style="color: #${hexColor}"></i>
                             <h4>${element.name}</h4>
                          </div>`;
     
         contentDom.innerHTML += boxIcon;
+        hexColor = "";
     })
 }
+
+
+// function per generare un numero casuale
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
