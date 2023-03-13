@@ -4,13 +4,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+:root{
+    --primary-color: #29b1dd;
 }
 
 .container{
     max-width: 1170px;
     height: 100%;
     margin: auto;
-    /* debug */ background-color: red;
 }
 
 
@@ -22,15 +26,46 @@ header{
     height: 80px;
 }
 
+header .container{
+    display: flex;
+    align-items: center;
+}
+
+.logo-title{
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
 
 /* inizio nav */
 nav{
     height: 100px;
-    /* debug */ background-color: blue;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav label{
+    color: white;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+}
+
+nav select{
+    position: relative;
+    bottom: 5px;
+    height: 2rem;
+    width: 6rem;
+    text-align: center;
 }
 
 
 /* inizio main */
 main{
     /* debug */ height: 700px;
+}
+
+main .container{
+    /* debug */ background-color: red;
 }

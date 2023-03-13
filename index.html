@@ -7,18 +7,33 @@
     <title>Icons Starter</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <!-- inizio header -->
     <header>
-        <div class="container"></div>
+        <div class="container">
+            <h1 class="logo-title">FontIcons</h1>
+        </div>
     </header>
     <!-- fine header -->
 
 
     <!-- inizio nav con select -->
-    <nav></nav>
+    <nav>
+        <div>
+            <label for="type-filter">FILTRA PER TIPO</label>
+            <select name="filtro" id="type-filter">
+                <option value="all">All</option>
+                <option value="animal">Animal</option>
+                <option value="vegetable">Vegetable</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+    </nav>
     <!-- fine nav con select -->
 
 
