@@ -162,7 +162,6 @@ function generateElements (arrayName) {
         for (let i = 0; i < 6; i++) {  
             hexColor += hexColorValues[generateRandomNumber(0, 15)];
         }
-        console.log(hexColor);
 
         const boxIcon = `<div class="box">
                             <i class="fa-solid ${element.prefix}${element.name}" style="color: #${hexColor}"></i>
@@ -180,3 +179,13 @@ function generateRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+
+
+const typesFilter = ["animal", "vegetable", "user"];
+
+typesFilter.forEach(element => {
+    const typeOption = `<option value="${element}">${element}</option>`;
+    
+    typeFilterDom.innerHTML += typeOption;
+});
