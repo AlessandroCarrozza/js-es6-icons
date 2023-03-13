@@ -112,3 +112,16 @@ const icons = [
 		color: 'blue'
 	}
 ];
+
+// collegamenti al DOM
+const contentDom = document.getElementById("content");
+
+icons.forEach((element) => {
+    const boxIcon = `<div>
+                        <h2>${element.name}</h2>
+                        <i class="fa-solid ${element.prefix}${element.name}"></i>
+                     </div>`;
+    console.log(boxIcon);
+
+    contentDom.innerHTML += boxIcon;
+})

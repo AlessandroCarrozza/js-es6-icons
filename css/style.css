@@ -62,10 +62,6 @@ nav select{
 
 
 /* inizio main */
-main{
-    /* debug */ height: 700px;
-}
-
 main .container{
-    /* debug */ background-color: red;
+    /* debug */ background-color: lightblue;
 }
