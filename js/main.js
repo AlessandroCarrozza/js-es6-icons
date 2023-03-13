@@ -119,7 +119,7 @@ const contentDom = document.getElementById("content");
 icons.forEach((element) => {
     const boxIcon = `<div>
                         <h2>${element.name}</h2>
-                        <i class="fa-solid ${element.prefix}${element.name}"></i>
+                        <i class="fa-solid ${element.prefix}${element.name}" style="color: ${element.color}"></i>
                      </div>`;
     console.log(boxIcon);
 
