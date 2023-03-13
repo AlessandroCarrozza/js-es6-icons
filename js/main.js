@@ -134,25 +134,19 @@ typeFilterDom.addEventListener("change", function(){
 
         generateElements(icons);
 
-    } 
-
-    if (chosenType == "animal") {
+    } else if (chosenType == "animal") {
         const icons2 = icons.filter(icon => icon.type == "animal" ? true : false);
         console.log(icons2);
         generateElements(icons2);
-    } 
-
-    if (chosenType == "vegetable") {
+    } else if (chosenType == "vegetable") {
         const icons2 = icons.filter(icon => icon.type == "vegetable" ? true : false);
         console.log(icons2);
         generateElements(icons2);
-    } 
-
-    if (chosenType == "user") {
+    } else if (chosenType == "user") {
         const icons2 = icons.filter(icon => icon.type == "user" ? true : false);
         console.log(icons2);
         generateElements(icons2);
-    } 
+    }
 
 })
 
