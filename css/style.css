@@ -1,10 +1,36 @@
 
-/* utility */
+/* ---- utility ---- */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.container{
+    max-width: 1170px;
+    height: 100%;
+    margin: auto;
+    /* debug */ background-color: red;
+}
 
-/* main code */
+
+
+/* ---- main code ---- */
+
+/* inizio header */
+header{
+    height: 80px;
+}
+
+
+/* inizio nav */
+nav{
+    height: 100px;
+    /* debug */ background-color: blue;
+}
+
+
+/* inizio main */
+main{
+    /* debug */ height: 700px;
+}
