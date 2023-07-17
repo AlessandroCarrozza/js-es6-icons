@@ -111,8 +111,9 @@ const icons = [
 		type: 'user',
 		family: 'fas',
 		color: 'blue'
-	}
+	},
 ];
+
 
 // collegamenti al DOM
 const contentDom = document.getElementById("content");
@@ -122,70 +123,70 @@ const typeFilterDom = document.getElementById("type-filter");
 
 generateElements(icons);
 
-typeFilterDom.addEventListener("change", function(){
-    let chosenType = typeFilterDom.value;
-    contentDom.innerHTML = "";
-    
-    chosenType = typeFilterDom.value;
-    console.log(chosenType);
+typeFilterDom.addEventListener("change", function () {
+	let chosenType = typeFilterDom.value;
+	contentDom.innerHTML = "";
 
-    if (chosenType == "all") {       
+	chosenType = typeFilterDom.value;
+	console.log(chosenType);
 
-        generateElements(icons);
+	if (chosenType == "all") {
 
-    } else if (chosenType == "animal") {
-        const icons2 = icons.filter(icon => icon.type == "animal" ? true : false);
-        console.log(icons2);
-        generateElements(icons2);
-    } else if (chosenType == "vegetable") {
-        const icons2 = icons.filter(icon => icon.type == "vegetable" ? true : false);
-        console.log(icons2);
-        generateElements(icons2);
-    } else if (chosenType == "user") {
-        const icons2 = icons.filter(icon => icon.type == "user" ? true : false);
-        console.log(icons2);
-        generateElements(icons2);
-    }
+		generateElements(icons);
+
+	} else {
+		const icons2 = icons.filter(icon => icon.type == chosenType ? true : false);
+		generateElements(icons2);
+	}
 
 })
 
+const typesFilter = [];
+generateTypesFilter(typesFilter);
 
+// function per generare le option nella select dinamicamente
+function generateTypesFilter(array) {
+	icons.forEach(element => {
+		if (!array.includes(element.type)) {
+			array.push(element.type);
+
+		}
+
+	});
+
+	for (let i = 0; i < array.length; i++) {
+		const typeOption = `<option value="${array[i]}">${array[i]}</option>`;
+
+		typeFilterDom.innerHTML += typeOption;
+	}
+	console.log(array);
+}
 
 // function per generare i tag nel DOM
-function generateElements (arrayName) {
+function generateElements(arrayName) {
 
-    const hexColorValues = ["a", "b", "c", "d", "e", "f", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    let hexColor = "";
+	const hexColorValues = ["a", "b", "c", "d", "e", "f", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	let hexColor = "";
 
-    arrayName.forEach((element) => {
+	arrayName.forEach((element) => {
 
-        for (let i = 0; i < 6; i++) {  
-            hexColor += hexColorValues[generateRandomNumber(0, 15)];
-        }
+		for (let i = 0; i < 6; i++) {
+			hexColor += hexColorValues[generateRandomNumber(0, 15)];
+		}
 
-        const boxIcon = `<div class="box">
+		const boxIcon = `<div class="box">
                             <i class="fa-solid ${element.prefix}${element.name}" style="color: #${hexColor}"></i>
                             <h4>${element.name}</h4>
                          </div>`;
-    
-        contentDom.innerHTML += boxIcon;
-        hexColor = "";
-    })
+
+		contentDom.innerHTML += boxIcon;
+		hexColor = "";
+	})
 }
 
 
 // function per generare un numero casuale
 function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
-
-
-const typesFilter = ["animal", "vegetable", "user"];
-
-typesFilter.forEach(element => {
-    const typeOption = `<option value="${element}">${element}</option>`;
-    
-    typeFilterDom.innerHTML += typeOption;
-});
